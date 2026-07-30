@@ -1,0 +1,29 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "android-devkit",
+  "description": "Android development environment for Claude Code: Play Store shipping discipline, accessibility review, and event-driven GitHub CI/CD.",
+  "owner": {
+    "name": "SelfishCoconut"
+  },
+  "plugins": [
+    {
+      "name": "android-devkit",
+      "description": "Opinionated Android + GitHub + software-engineering environment: subagents for accessibility review, codebase-rot auditing and documentation health; skills for running on-device, Play Store release compliance, prototype-to-production refactoring, i18n and Compose UI; hooks that format Kotlin and enforce issue-to-PR traceability; and a one-shot project initializer that provisions the whole GitHub CI/CD setup.",
+      "author": {
+        "name": "SelfishCoconut"
+      },
+      "source": "./plugins/android-devkit",
+      "category": "development",
+      "keywords": [
+        "android",
+        "kotlin",
+        "jetpack-compose",
+        "gradle",
+        "play-store",
+        "accessibility",
+        "ci-cd",
+        "github-actions"
+      ]
+    }
+  ]
+}

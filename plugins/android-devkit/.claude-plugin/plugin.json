@@ -1,0 +1,16 @@
+{
+  "name": "android-devkit",
+  "description": "Android + GitHub + software-engineering best-practice development environment",
+  "version": "0.1.0",
+  "author": {
+    "name": "SelfishCoconut"
+  },
+  "keywords": [
+    "android",
+    "kotlin",
+    "jetpack-compose",
+    "play-store",
+    "accessibility",
+    "ci-cd"
+  ]
+}

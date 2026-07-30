@@ -1,0 +1,31 @@
+{
+  "description": "Android development guardrails: auto-format edited Kotlin, warn on locale string drift, and keep every branch/PR traceable to a GitHub issue. All hooks are no-ops outside the situations they target and never block a tool call.",
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sh \"${CLAUDE_PLUGIN_ROOT}/hooks/format-on-edit.sh\""
+          },
+          {
+            "type": "command",
+            "command": "sh \"${CLAUDE_PLUGIN_ROOT}/hooks/strings-sync.sh\""
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sh \"${CLAUDE_PLUGIN_ROOT}/hooks/remind-board-issue.sh\""
+          }
+        ]
+      }
+    ]
+  }
+}
