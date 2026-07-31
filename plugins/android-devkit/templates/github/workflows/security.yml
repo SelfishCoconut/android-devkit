@@ -35,15 +35,14 @@ jobs:
       contents: read
     steps:
       - uses: actions/checkout@v5
-      - uses: actions/setup-java@v5
-        with:
-          distribution: temurin
-          java-version: "__JAVA_VERSION__"
+      # build-mode: none extracts the source directly instead of tracing a
+      # build. A traced build is fragile here: when a push touches no Kotlin,
+      # Gradle's cache makes assembleDebug a no-op, nothing compiles, and
+      # CodeQL fails with "could not process any of it". This is also faster.
       - uses: github/codeql-action/init@v3
         with:
           languages: java-kotlin
-      - uses: gradle/actions/setup-gradle@v4
-      - run: ./gradlew assembleDebug
+          build-mode: none
       - uses: github/codeql-action/analyze@v3
 
   dependencies:
