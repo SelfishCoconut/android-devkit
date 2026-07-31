@@ -31,14 +31,30 @@ default = res_dir / "values" / "strings.xml"
 if not default.is_file():
     sys.exit(0)
 
-KEY = re.compile(r'<(?:string|plurals|string-array)\s+name="([^"]+)"')
+TAG = re.compile(r"<(?:string|plurals|string-array)\b([^>]*?)/?>")
+NAME = re.compile(r'\bname="([^"]+)"')
+UNTRANSLATABLE = re.compile(r'\btranslatable="false"')
 
 
 def keys(path):
+    """Resource keys in `path`, excluding those marked translatable="false".
+
+    Strings that must not be translated (glyph literals, brand names, licence
+    credits, format patterns) are legitimately absent from every other locale.
+    Counting them as drift would make this hook cry wolf on every edit.
+    """
     try:
-        return set(KEY.findall(path.read_text(encoding="utf-8")))
+        text = path.read_text(encoding="utf-8")
     except OSError:
         return set()
+    found = set()
+    for attrs in TAG.findall(text):
+        if UNTRANSLATABLE.search(attrs):
+            continue
+        name = NAME.search(attrs)
+        if name:
+            found.add(name.group(1))
+    return found
 
 
 base = keys(default)
