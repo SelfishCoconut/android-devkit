@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" role="img" aria-label="android-devkit logo">
+  <title>android-devkit</title>
+
+  <!-- toolkit case -->
+  <rect x="7" y="7" width="114" height="114" rx="28" ry="28"
+        fill="none" stroke="#0f7b4f" stroke-width="7"/>
+
+  <!-- antennae -->
+  <g stroke="#3DDC84" stroke-width="6" stroke-linecap="round">
+    <line x1="45" y1="59" x2="37" y2="42"/>
+    <line x1="83" y1="59" x2="91" y2="42"/>
+  </g>
+
+  <!-- droid dome -->
+  <path d="M 36 79 a 28 28 0 0 1 56 0 Z" fill="#3DDC84"/>
+
+  <!-- eyes -->
+  <circle cx="53" cy="66" r="4.5" fill="#04150d"/>
+  <circle cx="75" cy="66" r="4.5" fill="#04150d"/>
+
+  <!-- body -->
+  <rect x="36" y="86" width="56" height="24" rx="8" ry="8" fill="#3DDC84"/>
+</svg>
